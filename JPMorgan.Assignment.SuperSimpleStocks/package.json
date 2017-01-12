@@ -1,7 +1,7 @@
 {
   "name": "jpmorgan.assignment.super-simple-stocks",
-  "version": "0.0.0",
-  "description": "JPMorgan.Assignment.SuperSimpleStocks",
+  "version": "0.0.1",
+  "description": "JPMorgan Assignment SuperSimpleStocks",
   "main": "app.js",
   "author": {
     "name": "Khalid Riaz"
