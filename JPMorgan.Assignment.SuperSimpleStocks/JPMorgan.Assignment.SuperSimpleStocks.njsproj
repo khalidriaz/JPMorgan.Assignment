@@ -33,8 +33,10 @@
     <Compile Include="app.js" />
     <Compile Include="Gruntfile.js" />
     <Compile Include="modules\Stock.js" />
-    <Compile Include="test\tests.js" />
-    <Compile Include="test\tradingtests.js" />
+    <Compile Include="modules\StockCommon.js" />
+    <Compile Include="test\StockCommonTests.js" />
+    <Compile Include="test\StockTests.js" />
+    <Compile Include="test\TradingTests.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>

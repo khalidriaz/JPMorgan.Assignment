@@ -1,4 +1,6 @@
-﻿var chai = require('chai');
+﻿/*jshint expr: true*/
+
+var chai = require('chai');
 
 chai.should();
 
