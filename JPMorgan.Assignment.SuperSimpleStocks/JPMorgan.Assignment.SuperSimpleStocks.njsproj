@@ -35,10 +35,12 @@
     <Compile Include="modules\Stock.js" />
     <Compile Include="modules\StockCommon.js" />
     <Compile Include="modules\StockPreferred.js" />
+    <Compile Include="modules\Trade.js" />
+    <Compile Include="modules\TradeTypeEnum.js" />
     <Compile Include="test\StockCommonTests.js" />
     <Compile Include="test\StockPreferredTests.js" />
     <Compile Include="test\StockTests.js" />
-    <Compile Include="test\TradingTests.js" />
+    <Compile Include="test\TradeTests.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>
