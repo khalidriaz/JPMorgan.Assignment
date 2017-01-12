@@ -1,0 +1,3 @@
+﻿# JPMorgan.Assignment.SuperSimpleStocks
+
+
