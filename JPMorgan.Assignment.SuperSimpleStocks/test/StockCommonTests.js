@@ -45,9 +45,7 @@ describe("StockExchange", function () {
             var dividend = stockCommon.DividendYield(100);
             dividend.should.equal(0.23);
         });
-        it("has an fixed dividend if type is Preferred");
-        it("can calculate dividend for preferred stock based on market price");
-
+        
         it("can record (add) a trade");
         it("can calculate volume weighted stock price" +
             " based on last 15 minutest trades");

@@ -34,7 +34,9 @@
     <Compile Include="Gruntfile.js" />
     <Compile Include="modules\Stock.js" />
     <Compile Include="modules\StockCommon.js" />
+    <Compile Include="modules\StockPreferred.js" />
     <Compile Include="test\StockCommonTests.js" />
+    <Compile Include="test\StockPreferredTests.js" />
     <Compile Include="test\StockTests.js" />
     <Compile Include="test\TradingTests.js" />
     <Content Include="package.json" />
