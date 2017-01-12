@@ -34,13 +34,17 @@
     <Compile Include="Gruntfile.js" />
     <Compile Include="modules\Stock.js" />
     <Compile Include="modules\StockCommon.js" />
+    <Compile Include="modules\StockExchange.js" />
     <Compile Include="modules\StockPreferred.js" />
     <Compile Include="modules\Trade.js" />
     <Compile Include="modules\TradeTypeEnum.js" />
+    <Compile Include="modules\Trading.js" />
     <Compile Include="test\StockCommonTests.js" />
+    <Compile Include="test\StockExchangeTests.js" />
     <Compile Include="test\StockPreferredTests.js" />
     <Compile Include="test\StockTests.js" />
     <Compile Include="test\TradeTests.js" />
+    <Compile Include="test\TradingTests.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>

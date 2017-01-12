@@ -1,5 +1,4 @@
 ﻿/*jshint expr: true*/
-
 var chai = require('chai');
 var Stock = require('../modules/Stock');
 
@@ -39,9 +38,5 @@ describe("StockExchange", function () {
             var ratio = stock.PERatio(100);
             ratio.should.equal(4.3478260869565215);
         });
-
-        it("can record (add) a trade");
-        it("can calculate volume weighted stock price" +
-            " based on last 15 minutest trades");
     });
 });

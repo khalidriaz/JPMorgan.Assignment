@@ -1,5 +1,4 @@
 ﻿/*jshint expr: true*/
-
 var chai = require('chai');
 var StockCommon = require('../modules/StockCommon');
 
@@ -45,9 +44,5 @@ describe("StockExchange", function () {
             var dividend = stockCommon.DividendYield(100);
             dividend.should.equal(0.23);
         });
-        
-        it("can record (add) a trade");
-        it("can calculate volume weighted stock price" +
-            " based on last 15 minutest trades");
     });
 });

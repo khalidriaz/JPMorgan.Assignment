@@ -1,5 +1,4 @@
 ﻿/*jshint expr: true*/
-
 var chai = require('chai');
 var StockPreferred = require('../modules/StockPreferred');
 
@@ -49,9 +48,5 @@ describe("StockExchange", function () {
             var dividend = stockPreferred.DividendYield(120);
             dividend.should.equal(0.016666666666666666);
         });
-
-        it("can record (add) a trade");
-        it("can calculate volume weighted stock price" +
-            " based on last 15 minutest trades");
     });
 });
