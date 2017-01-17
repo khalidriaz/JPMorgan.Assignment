@@ -1,6 +1,4 @@
-﻿var Trade = require('./Trade');
-
-module.exports = function () {
+﻿module.exports = function () {
     
     var _tradeList = [],
     

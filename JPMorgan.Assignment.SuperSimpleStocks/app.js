@@ -1,10 +1,10 @@
-﻿var StockExchange = require('./modules/StockExchange')
-var StockCommon = require('./modules/StockCommon')
-var StockPreferred = require('./modules/StockPreferred')
+﻿var StockExchange = require('./StockExchange')
+var StockCommon = require('./StockExchange/models/StockCommon')
+var StockPreferred = require('./StockExchange/models/StockPreferred')
 
-var Trading = require('./modules/Trading');
-var Trade = require('./modules/Trade');
-var TradeType = require('./modules/TradeTypeEnum.js');
+var Trading = require('./Trading');
+var Trade = require('./Trading/models/Trade');
+var TradeType = require('./Trading/models/TradeTypeEnum.js');
 
 //StockExchange
 var stockExchange = new StockExchange();

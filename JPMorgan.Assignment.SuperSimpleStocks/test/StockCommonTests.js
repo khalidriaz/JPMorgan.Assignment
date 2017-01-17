@@ -1,6 +1,6 @@
 ﻿/*jshint expr: true*/
 var chai = require('chai');
-var StockCommon = require('../modules/StockCommon');
+var StockCommon = require('../StockExchange/models/StockCommon');
 
 var assert = chai.assert;
 chai.should();

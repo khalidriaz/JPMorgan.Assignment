@@ -32,13 +32,13 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="Gruntfile.js" />
-    <Compile Include="modules\Stock.js" />
-    <Compile Include="modules\StockCommon.js" />
-    <Compile Include="modules\StockExchange.js" />
-    <Compile Include="modules\StockPreferred.js" />
-    <Compile Include="modules\Trade.js" />
-    <Compile Include="modules\TradeTypeEnum.js" />
-    <Compile Include="modules\Trading.js" />
+    <Compile Include="StockExchange\models\Stock.js" />
+    <Compile Include="StockExchange\models\StockCommon.js" />
+    <Compile Include="StockExchange\index.js" />
+    <Compile Include="StockExchange\models\StockPreferred.js" />
+    <Compile Include="Trading\models\Trade.js" />
+    <Compile Include="Trading\models\TradeTypeEnum.js" />
+    <Compile Include="Trading\index.js" />
     <Compile Include="test\StockCommonTests.js" />
     <Compile Include="test\StockExchangeTests.js" />
     <Compile Include="test\StockPreferredTests.js" />
@@ -47,10 +47,15 @@
     <Compile Include="test\TradingTests.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="StockExchange\package.json" />
+    <Content Include="Trading\package.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="modules\" />
+    <Folder Include="Trading\" />
+    <Folder Include="StockExchange\" />
+    <Folder Include="StockExchange\models\" />
     <Folder Include="test\" />
+    <Folder Include="Trading\models\" />
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />
     <Folder Include="typings\globals\chai\" />

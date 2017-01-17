@@ -1,6 +1,6 @@
 ﻿/*jshint expr: true*/
-var Trade = require('../modules/Trade');
-var TradeTypeEnum = require('../modules/TradeTypeEnum');
+var Trade = require('../Trading/models/Trade');
+var TradeTypeEnum = require('../Trading/models/TradeTypeEnum');
 
 var chai = require('chai');
 chai.should();

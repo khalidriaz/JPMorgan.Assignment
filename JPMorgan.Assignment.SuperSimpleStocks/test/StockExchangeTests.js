@@ -1,7 +1,7 @@
 ﻿/*jshint expr: true*/
-var StockExchange = require('../modules/StockExchange');
-var StockCommon = require('../modules/StockCommon');
-var StockPreferred = require('../modules/StockPreferred');
+var StockExchange = require('../StockExchange');
+var StockCommon = require('../StockExchange/models/StockCommon');
+var StockPreferred = require('../StockExchange/models/StockPreferred');
 
 var chai = require('chai');
 
