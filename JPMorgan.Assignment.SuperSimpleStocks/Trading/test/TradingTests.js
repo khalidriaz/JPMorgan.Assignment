@@ -1,7 +1,7 @@
 ﻿/*jshint expr: true*/
-var Trading = require('../Trading');
-var Trade = require('../Trading/models/Trade');
-var TradeType = require('../Trading/models/TradeTypeEnum');
+var Trading = require('../index');
+var Trade = require('../models/Trade');
+var TradeType = require('../models/TradeTypeEnum');
 
 var chai = require('chai');
 chai.should();
