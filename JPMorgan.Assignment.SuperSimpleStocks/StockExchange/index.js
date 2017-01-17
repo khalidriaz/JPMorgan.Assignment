@@ -5,6 +5,7 @@ module.exports = function () {
     var _stockList = [],
     
         addStock = function (stock) {
+            
             if (stock !== 'undefined')
                 return _stockList.push(stock);
         },

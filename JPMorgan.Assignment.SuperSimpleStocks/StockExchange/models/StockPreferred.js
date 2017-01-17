@@ -13,7 +13,10 @@ StockPreferred.prototype.constructor = StockPreferred;
 StockPreferred.prototype.DividendYield = function (marketPrice) {
 
     if (marketPrice <= 0)
-        throw Error("Divide by zero error.");
+        throw {
+            error: 'Divide by zero exception',
+            message: 'Preferred stock has invalid value of ' + marketPrice + ' for market price (denominator)'
+        };
 
     return ((this.fixedDividend / 100) * this.parValue) / marketPrice;
 };

@@ -3,13 +3,17 @@
     var _tradeList = [],
     
         addTrade = function (trade) {
-            
-            return _tradeList.push(trade);
+            if (trade !== 'undefined')
+                return _tradeList.push(trade);
         },
         addTrades = function (trades) {
-            
-            Array.prototype.push.apply(_tradeList, trades);
-            return _tradeList.length;
+            try {
+                
+                Array.prototype.push.apply(_tradeList, trades);
+                return _tradeList.length;
+            } catch (e) {
+                console.log(e.message);
+            };
         },
         getVolumeWeightedStockPrice = function (milliseconds) {
             
@@ -21,21 +25,26 @@
                 totalTradePrice = 0,
                 totalQuantity = 0;
             
-            if (_tradeList != null) {
-                var filteredTrades = _tradeList.filter(function (x) {
-                    return x.timeStamp >= startTime && x.timeStamp <= endTime;
-                });
+            try {
                 
-                filteredTrades.forEach(function (trade) {
-                    totalTradePrice += (trade.price * trade.quantity);
-                    totalQuantity += trade.quantity;
-                });
+                if (_tradeList != null) {
+                    var filteredTrades = _tradeList.filter(function (x) {
+                        return x.timeStamp >= startTime && x.timeStamp <= endTime;
+                    });
+                    
+                    filteredTrades.forEach(function (trade) {
+                        totalTradePrice += (trade.price * trade.quantity);
+                        totalQuantity += trade.quantity;
+                    });
+                    
+                    if (totalQuantity > 0)
+                        volumeWeightedStockPrice = totalTradePrice / totalQuantity;
+                }
                 
-                if (totalQuantity > 0)
-                    volumeWeightedStockPrice = totalTradePrice / totalQuantity;
-            }
-            
-            return volumeWeightedStockPrice;
+                return volumeWeightedStockPrice;
+            } catch (e) {
+                console.log(e.message);
+            };
         };
     
     return {
