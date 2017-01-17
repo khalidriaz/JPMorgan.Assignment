@@ -1,3 +1,2 @@
-﻿# JPMorgan.Assignment.SuperSimpleStocks
-
-
+# JPMorgan.Assignment
+J.P Morgan assignment using JavaScript.
