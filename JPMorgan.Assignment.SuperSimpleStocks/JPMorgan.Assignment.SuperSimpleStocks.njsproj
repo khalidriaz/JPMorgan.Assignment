@@ -46,7 +46,6 @@
     <Compile Include="Trading\test\TradeTests.js" />
     <Compile Include="Trading\test\TradingTests.js" />
     <Content Include="package.json" />
-    <Content Include="README.md" />
     <Content Include="StockExchange\package.json" />
     <Content Include="Trading\package.json" />
   </ItemGroup>
