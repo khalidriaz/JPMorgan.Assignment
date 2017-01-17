@@ -30,10 +30,10 @@ describe("Trading Tests", function () {
             trading.should.exit;
         });
         it("can record (add) a trade", function () {
-            trading.AddTrade().should.equal(1);
+            trading.addTrade().should.equal(1);
         });
         it("can record (add) multiple trades", function () {
-            var tradeCount = trading.AddTrades([
+            var tradeCount = trading.addTrades([
                 new Trade(10, 5, Date.now() - (MINUTE * 1), TradeType.BUY),
                 new Trade(17, 2, Date.now() - (MINUTE * 2), TradeType.BUY),
                 new Trade(30, 7, Date.now() - (MINUTE * 5), TradeType.SELL)]);
@@ -43,8 +43,8 @@ describe("Trading Tests", function () {
         it("can calculate volume weighted stock price" +
             " based on last 15 minutest trades", function () { 
         
-            trading.AddTrades(tradeList);
-            trading.GetVolumeWeightedStockPrice().should.equal(26.5833333333333332);
+            trading.addTrades(tradeList);
+            trading.getVolumeWeightedStockPrice().should.equal(26.5833333333333332);
         });
     });
 });

@@ -16,10 +16,10 @@ var stockList = [
     new StockCommon("JOE", 250, 13)
 ];
 
-stockExchange.AddStocks(stockList);
-console.log('All share index: ' + stockExchange.GetAllShareIndex());
-console.log('Dividend yield: ' + stockExchange.GetDividendYield("POP", 200));
-console.log('PE Ratio: ' + stockExchange.GetPERatio("TEA", 200));
+stockExchange.addStocks(stockList);
+console.log('All share index: ' + stockExchange.getAllShareIndex());
+console.log('Dividend yield: ' + stockExchange.getDividendYield("POP", 200));
+console.log('PE Ratio: ' + stockExchange.getPERatio("TEA", 200));
 console.log('\n');
 
 
@@ -37,5 +37,5 @@ var trades = [
     new Trade(27, 7, Date.now() - (MINUTE * 16), TradeType.BUY),
     new Trade(12, 4, Date.now() - (MINUTE * 20), TradeType.SELL)
 ];
-trading.AddTrades(trades);
-console.log('Volume weighted stock price: ' + trading.GetVolumeWeightedStockPrice());
+trading.addTrades(trades);
+console.log('Volume weighted stock price: ' + trading.getVolumeWeightedStockPrice());

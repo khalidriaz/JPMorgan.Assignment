@@ -48,8 +48,8 @@
         };
     
     return {
-        AddTrade: addTrade,
-        AddTrades: addTrades,
-        GetVolumeWeightedStockPrice: getVolumeWeightedStockPrice
+        addTrade: addTrade,
+        addTrades: addTrades,
+        getVolumeWeightedStockPrice: getVolumeWeightedStockPrice
     };
 };

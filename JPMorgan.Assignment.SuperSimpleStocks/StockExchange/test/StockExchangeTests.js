@@ -32,36 +32,36 @@ describe("Stock Exchange", function () {
         
         it("should add a stock", function () {
             
-            stockExchange.AddStock(new StockCommon("TEA", 100, 0)).should.equal(1);
+            stockExchange.addStock(new StockCommon("TEA", 100, 0)).should.equal(1);
         });
         it("should add multiple stocks", function () {
             
-            stockExchange.AddStocks(stockList).should.equal(5);
+            stockExchange.addStocks(stockList).should.equal(5);
         });
         
         it("should get all share index", function () {
             
-            stockExchange.AddStocks(stockList);
-            var allShareIndex = stockExchange.GetAllShareIndex();
+            stockExchange.addStocks(stockList);
+            var allShareIndex = stockExchange.getAllShareIndex();
             allShareIndex.should.equal(108.44717711976989);
         });
         it("should get dividend yield for common stock", function () {
-            stockExchange.AddStocks(stockList);
+            stockExchange.addStocks(stockList);
             
-            var dividendYield = stockExchange.GetDividendYield("POP", 10);
+            var dividendYield = stockExchange.getDividendYield("POP", 10);
             dividendYield.should.equal(0.8);
         });
         it("should get dividend yield for preferred stock", function () {
             
-            stockExchange.AddStocks(stockList);
+            stockExchange.addStocks(stockList);
             
-            var dividendYield = stockExchange.GetDividendYield("GIN", 10);
+            var dividendYield = stockExchange.getDividendYield("GIN", 10);
             dividendYield.should.equal(0.2);
         });
         it("should get PE Ratio", function () {
-            stockExchange.AddStock(new StockCommon("POP", 100, 8));
+            stockExchange.addStock(new StockCommon("POP", 100, 8));
             
-            var dividendYield = stockExchange.GetPERatio("POP", 120);
+            var dividendYield = stockExchange.getPERatio("POP", 120);
             dividendYield.should.equal(15);
         });
     });

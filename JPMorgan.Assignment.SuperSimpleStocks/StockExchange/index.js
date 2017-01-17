@@ -53,10 +53,10 @@ module.exports = function () {
         };
     
     return {
-        AddStock: addStock,
-        AddStocks: addStocks,
-        GetAllShareIndex: getAllShareIndex,
-        GetDividendYield: getDividendYield,
-        GetPERatio: getPERatio
+        addStock: addStock,
+        addStocks: addStocks,
+        getAllShareIndex: getAllShareIndex,
+        getDividendYield: getDividendYield,
+        getPERatio: getPERatio
     };
 };
