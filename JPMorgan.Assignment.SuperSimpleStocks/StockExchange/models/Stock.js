@@ -27,13 +27,13 @@ Stock.prototype = function () {
                 Array.prototype.push.apply(this.tradeList, trades);
                 return this.tradeList.length;
             } catch (e) {
-                throw (e);s
-            };
+                throw (e);
+            }
         },
         getVolumeWeightedStockPrice = function (milliseconds) {
             
-            const MINUTES_15 = 15 * 60 * 1000;
-            var duration = milliseconds || MINUTES_15,            
+            var MINUTES_15 = 15 * 60 * 1000,
+                duration = milliseconds || MINUTES_15,            
                 endTime = Date.now(),
                 startTime = endTime - duration,            
                 volumeWeightedStockPrice = 0,
@@ -42,7 +42,7 @@ Stock.prototype = function () {
             
             try {
                 
-                if (this.tradeList != null) {
+                if (this.tradeList !== null) {
                     var filteredTrades = this.tradeList.filter(function (x) {
                         return x.timeStamp >= startTime && x.timeStamp <= endTime;
                     });
@@ -59,7 +59,7 @@ Stock.prototype = function () {
                 return volumeWeightedStockPrice;
             } catch (e) {
                 throw (e);
-            };
+            }
         };
     
     return {

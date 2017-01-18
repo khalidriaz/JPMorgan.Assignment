@@ -13,8 +13,8 @@ chai.should();
 
 describe("Stock Exchange", function () {
     
-    const MINUTE = 60 * 1000;
-    var stockExchange,
+    var MINUTE = 60 * 1000,
+        stockExchange,
         stockList,
         tradeList;
     

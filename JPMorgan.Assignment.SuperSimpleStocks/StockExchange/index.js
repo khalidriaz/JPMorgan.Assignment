@@ -6,7 +6,7 @@ module.exports = function () {
     
         addStock = function (stock) {
             
-            if (stock !== 'undefined')
+            if (stock !== undefined)
                 return _stockList.push(stock);
         },
         addStocks = function (stocks) {
@@ -14,8 +14,8 @@ module.exports = function () {
                 Array.prototype.push.apply(_stockList, stocks);
                 return _stockList.length;
             } catch (e) {
-                
-            };
+                console.log(e.message);
+            }
         },
         addTrade = function (symbol, trade) {
             var stock = findStock(symbol);
@@ -25,9 +25,13 @@ module.exports = function () {
             var stock = findStock(symbol);
             return stock.addTrades(trades);
         },
-        getVolumeWeightedStockPrice = function (symbol, timeStamp) { 
-            var stock = findStock(symbol);
-            return stock.getVolumeWeightedStockPrice(timeStamp);//timeStamp is an optional parameter
+        getVolumeWeightedStockPrice = function (symbol, timeStamp) {
+            try {
+                var stock = findStock(symbol);
+                return stock.getVolumeWeightedStockPrice(timeStamp);//timeStamp is an optional parameter    
+            } catch (e) {
+                console.log(e.message);
+            }
         },
         getAllShareIndex = function () {
             try {
@@ -43,8 +47,8 @@ module.exports = function () {
                 
                 return geometricMean;
             } catch (e) {
-                console.log();
-            };
+                console.log(e.message);
+            }
         },
         getDividendYield = function (stockSymbol, marketPrice) {
             
@@ -57,7 +61,7 @@ module.exports = function () {
                 return stock.getPERatio(marketPrice);
             } catch (exception) {
                 console.log(exception.message + ' of type ' + exception.error);
-            };
+            }
         },
         findStock = function (symbol) {
             

@@ -2,10 +2,10 @@
 
     grunt.initConfig({
         jshint: {
-            files: ['modules/*.js', 'test/*.js' ]
+            files: ['StockExchange/**/*.js' ]
         },
         watch: {
-            files: ['modules/*.js', 'test/*.js'],
+            files: ['StockExchange/**/*.js'],
             tasks: ['jshint']
         }
     });

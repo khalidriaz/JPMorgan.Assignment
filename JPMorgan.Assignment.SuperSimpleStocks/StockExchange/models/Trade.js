@@ -1,14 +1,14 @@
 ﻿module.exports = function (price, quantity, timeStamp, tradeType) {
 
-    var timeStamp = timeStamp || new Date(),
-        quantity = quantity,
-        tradeType = tradeType,
-        price = price;
+    var _timeStamp = timeStamp || new Date(),
+        _quantity = quantity,
+        _tradeType = tradeType,
+        _price = price;
     
     return {
-        timeStamp: timeStamp,
-        quantity: quantity,
-        tradeType: tradeType,
-        price: price
+        timeStamp: _timeStamp,
+        quantity: _quantity,
+        tradeType: _tradeType,
+        price: _price
     };
 };
