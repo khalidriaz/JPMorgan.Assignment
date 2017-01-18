@@ -48,15 +48,15 @@ This is the main API to run all the required methods.
 
 Module structure is used as it offers cleaner organization of code in a large project.
 
-###Stock  
-Stock prototype implements common functionalities which will be loaded once for all the instances of StockCommon and StockPreferred.
-Revealing prototype pattern is used as it offers cleaner view of public functions.
+###StockExchange  
 
 * **StockExchange/models**:<br />
  Project folder contains modules for Stocks. 
 
 **Stock** is a base module for StockPreferred and StockCommon, it contains functions which will be shared across `StockCommon` and `StockPreferred` which<br />
-  implements thier own version of **DividendYield** by using object-oriented *overriding* concept with using respective dividend yield formula for preferred and common stock.
+  implements thier own version of **DividendYield** by using object-oriented *overriding* concept with using respective dividend yield formula for preferred and common stock.<br />
+Stock prototype implements common functionalities which will be loaded once for all the instances of StockCommon and StockPreferred.
+Revealing prototype pattern is used as it offers cleaner view of public functions.
 
 **Trade**
 Trade module which contains properties to describe trade. This class contains no method as use cases didn't identified any.
