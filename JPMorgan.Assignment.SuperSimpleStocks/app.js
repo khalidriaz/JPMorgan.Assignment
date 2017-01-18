@@ -1,13 +1,9 @@
-﻿var StockExchange = require('./StockExchange')
-var StockCommon = require('./StockExchange/models/StockCommon')
-var StockPreferred = require('./StockExchange/models/StockPreferred')
+﻿var StockExchange = require('./StockExchange'),
+    StockCommon = require('./StockExchange/models/StockCommon'),
+    StockPreferred = require('./StockExchange/models/StockPreferred'),
+    Trade = require('./StockExchange/models/Trade'),
+    TradeType = require('./StockExchange/models/TradeTypeEnum');
 
-var Trading = require('./Trading');
-var Trade = require('./Trading/models/Trade');
-var TradeType = require('./Trading/models/TradeTypeEnum.js');
-
-//StockExchange
-var stockExchange = new StockExchange();
 var stockList = [
     new StockCommon("TEA", 100, 0),
     new StockCommon("POP", 100, 8),
@@ -16,15 +12,6 @@ var stockList = [
     new StockCommon("JOE", 250, 13)
 ];
 
-stockExchange.addStocks(stockList);
-console.log('All share index: ' + stockExchange.getAllShareIndex());
-console.log('Dividend yield: ' + stockExchange.getDividendYield("POP", 200));
-console.log('PE Ratio: ' + stockExchange.getPERatio("TEA", 200));
-console.log('\n');
-
-
-//Trading
-var trading = new Trading();
 var MINUTE = 60 * 1000
 var trades = [
     new Trade(10, 5, Date.now() - (MINUTE * 1), TradeType.BUY),
@@ -37,5 +24,34 @@ var trades = [
     new Trade(27, 7, Date.now() - (MINUTE * 16), TradeType.BUY),
     new Trade(12, 4, Date.now() - (MINUTE * 20), TradeType.SELL)
 ];
-trading.addTrades(trades);
-console.log('Volume weighted stock price: ' + trading.getVolumeWeightedStockPrice());
+
+var getRandom = function (min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+var generateFakeTrades = function (number) {
+    
+    var trades = [];
+    var length = number || 10;
+    for (i = 0; i < length; i++) {
+        var tradeType = getRandom(1, 10) % 2 == 0?TradeType.BUY:TradeType.SELL;
+        trades.push(new Trade(getRandom(5, 50), getRandom(2, 15), Date.now() - (MINUTE * getRandom(1, 30)), tradeType));
+    }
+    return trades;
+};
+var randomTrades = generateFakeTrades(50);
+
+var stockExchange = new StockExchange();
+stockExchange.addStocks(stockList);
+var singleTrade = new Trade(10, 5, Date.now() - (MINUTE * 1), TradeType.BUY);
+stockExchange.addTrade("POP");
+stockExchange.addTrades("POP", trades);
+
+console.log('\n');
+console.log('Dividend yield: ' + stockExchange.getDividendYield("POP", 200));
+console.log('\n');
+console.log('PE Ratio: ' + stockExchange.getPERatio("POP", 200));
+console.log('\n');
+console.log('All share index: ' + stockExchange.getAllShareIndex());
+console.log('\n');
+console.log('Volume weighted stock price: ' + stockExchange.getVolumeWeightedStockPrice("POP"));

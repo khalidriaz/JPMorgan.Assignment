@@ -35,7 +35,7 @@ describe("StockExchange", function () {
 
         it("can caluculate PE Ratio", function () {
 
-            var ratio = stock.PERatio(100);
+            var ratio = stock.getPERatio(100);
             ratio.should.equal(4.3478260869565215);
         });
     });

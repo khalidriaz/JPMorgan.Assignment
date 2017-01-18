@@ -2,6 +2,8 @@
 var StockExchange = require('../index');
 var StockCommon = require('../models/StockCommon');
 var StockPreferred = require('../models/StockPreferred');
+var Trade = require('../models/Trade');
+var TradeType = require('../models/TradeTypeEnum');
 
 var chai = require('chai');
 
@@ -11,8 +13,11 @@ describe("Stock Exchange", function () {
     
     describe("Stock Exchange", function () {
         
+        const MINUTE = 60 * 1000;
         var stockExchange,
-            stockList;
+            stockList,
+            tradeList;
+
         beforeEach(function () {
             
             stockList = [
@@ -22,6 +27,19 @@ describe("Stock Exchange", function () {
                 new StockPreferred("GIN", 100, 8, 2),
                 new StockCommon("JOE", 250, 13)
             ];
+            
+            tradeList = [
+                new Trade(10, 5, Date.now() - (MINUTE * 1), TradeType.BUY),
+                new Trade(17, 2, Date.now() - (MINUTE * 2), TradeType.BUY),
+                new Trade(30, 7, Date.now() - (MINUTE * 5), TradeType.SELL),
+                new Trade(15, 4, Date.now() - (MINUTE * 8), TradeType.BUY),
+                new Trade(28, 9, Date.now() - (MINUTE * 10), TradeType.SELL),
+                new Trade(34, 4, Date.now() - (MINUTE * 12), TradeType.SELL),
+                new Trade(43, 5, Date.now() - (MINUTE * 14), TradeType.BUY),
+                new Trade(27, 7, Date.now() - (MINUTE * 16), TradeType.BUY),
+                new Trade(12, 4, Date.now() - (MINUTE * 20), TradeType.SELL)
+            ];
+
             stockExchange = new StockExchange();
         });
         
@@ -63,6 +81,28 @@ describe("Stock Exchange", function () {
             
             var dividendYield = stockExchange.getPERatio("POP", 120);
             dividendYield.should.equal(15);
+        });
+        it("can record (add) a trade", function () {
+            stockExchange.addStocks(stockList);
+            var trade = new Trade(10, 5, Date.now() - (MINUTE * 1), TradeType.BUY);
+            stockExchange.addTrade('GIN', trade).should.equal(1);
+        });
+        it("can record (add) multiple trades", function () {
+            stockExchange.addStocks(stockList);
+            var tradeCount = stockExchange.addTrades('JOE',[
+                new Trade(10, 5, Date.now() - (MINUTE * 1), TradeType.BUY),
+                new Trade(17, 2, Date.now() - (MINUTE * 2), TradeType.BUY),
+                new Trade(30, 7, Date.now() - (MINUTE * 5), TradeType.SELL)]);
+            
+            tradeCount.should.equal(3);
+        });
+        
+        it("can calculate volume weighted stock price" +
+            " based on last 15 minutest trades", function () {
+            
+            stockExchange.addStocks(stockList);
+            stockExchange.addTrades("POP",tradeList);
+            stockExchange.getVolumeWeightedStockPrice('POP').should.equal(26.5833333333333332);
         });
     });
 });

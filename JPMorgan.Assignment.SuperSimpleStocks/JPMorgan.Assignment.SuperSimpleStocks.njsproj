@@ -36,25 +36,22 @@
     <Compile Include="StockExchange\models\StockCommon.js" />
     <Compile Include="StockExchange\index.js" />
     <Compile Include="StockExchange\models\StockPreferred.js" />
-    <Compile Include="Trading\models\Trade.js" />
-    <Compile Include="Trading\models\TradeTypeEnum.js" />
+    <Compile Include="StockExchange\models\Trade.js" />
+    <Compile Include="StockExchange\models\TradeTypeEnum.js" />
     <Compile Include="Trading\index.js" />
     <Compile Include="StockExchange\test\StockCommonTests.js" />
     <Compile Include="StockExchange\test\StockExchangeTests.js" />
     <Compile Include="StockExchange\test\StockPreferredTests.js" />
     <Compile Include="StockExchange\test\StockTests.js" />
-    <Compile Include="Trading\test\TradeTests.js" />
-    <Compile Include="Trading\test\TradingTests.js" />
+    <Compile Include="StockExchange\test\TradeTests.js" />
     <Content Include="package.json" />
     <Content Include="StockExchange\package.json" />
     <Content Include="Trading\package.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StockExchange\test\" />
-    <Folder Include="Trading\" />
     <Folder Include="StockExchange\" />
     <Folder Include="StockExchange\models\" />
-    <Folder Include="Trading\models\" />
     <Folder Include="Trading\test\" />
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />

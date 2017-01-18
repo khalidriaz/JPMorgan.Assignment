@@ -17,6 +17,18 @@ module.exports = function () {
                 
             };
         },
+        addTrade = function (symbol, trade) {
+            var stock = findStock(symbol);
+            return stock.addTrade(trade);
+        },
+        addTrades = function (symbol, trades) { 
+            var stock = findStock(symbol);
+            return stock.addTrades(trades);
+        },
+        getVolumeWeightedStockPrice = function (symbol, timeStamp) { 
+            var stock = findStock(symbol);
+            return stock.getVolumeWeightedStockPrice(timeStamp);//timeStamp is an optional parameter
+        },
         getAllShareIndex = function () {
             try {
                 var geometricMean = 0;
@@ -40,12 +52,12 @@ module.exports = function () {
             return stock.DividendYield(marketPrice);
         },
         getPERatio = function (stockSymbol, marketPrice) {
-            try {
+            //try {
                 var stock = findStock(stockSymbol);
-                return stock.PERatio(marketPrice);
-            } catch (exception) {
-                console.log(exception.message + ' of type ' + exception.error);
-            };
+                return stock.getPERatio(marketPrice);
+            //} catch (exception) {
+            //    console.log(exception.message + ' of type ' + exception.error);
+            //};
         },
         findStock = function (symbol) {
             
@@ -55,8 +67,11 @@ module.exports = function () {
     return {
         addStock: addStock,
         addStocks: addStocks,
+        addTrade: addTrade,
+        addTrades: addTrades,        
         getAllShareIndex: getAllShareIndex,
         getDividendYield: getDividendYield,
-        getPERatio: getPERatio
+        getPERatio: getPERatio,
+        getVolumeWeightedStockPrice: getVolumeWeightedStockPrice
     };
 };
