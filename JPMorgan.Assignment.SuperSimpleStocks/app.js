@@ -48,10 +48,11 @@ stockExchange.addTrade("POP");
 stockExchange.addTrades("POP", trades);
 
 console.log('\n');
+console.log('a. For a given stock');
 console.log('Dividend yield: ' + stockExchange.getDividendYield("POP", 200));
-console.log('\n');
 console.log('PE Ratio: ' + stockExchange.getPERatio("POP", 200));
-console.log('\n');
-console.log('All share index: ' + stockExchange.getAllShareIndex());
-console.log('\n');
 console.log('Volume weighted stock price: ' + stockExchange.getVolumeWeightedStockPrice("POP"));
+
+console.log('\n');
+console.log('b. GBCE All share index.');
+console.log('All share index: ' + stockExchange.getAllShareIndex());
