@@ -1,14 +1,15 @@
 # Super Simple Stocks
 
-Solution is developed in the Visual Studio 2015. 
-Node.js is used as a platform to demonstrate coding skill. ECMAScript 5 is used as it is more complex to demonstrate as compare to 
-ECMAScript2015 which mostly adds class like syntactical sugar on top of ES5 language concepts.
-Nodejs is only used as server-side platform for javascript, purpose of nodejs is not to
-claim any experience in Nodejs.
+Solution for this assignment is developed using Visual Studio 2015. 
+Also I ran this solution in [VS Code](https://code.visualstudio.com/) to see if solution is working in free ligtweight crossplatform version of Visual Studio.
 
-Angularjs not used as it injects it has its own concepts.
+ECMAScript5 is used as it is more complex to demonstrate Javascript concepts as compare to 
+ECMAScript2015 which adds class like syntactical sugar on top of ES5 concepts.
 
-In addition to using Javascript, Following frameworks, libraries and tools are used.
+Node.js is used as a server-side platform, only to demonstrate javascript coding skill, not to claim any experience in Nodejs. 
+Angularjs/Knockoutjs not selected as platform, as they adds their own concepts.
+
+In addition to using JavaScript, Following frameworks, libraries and tools are used.
 
 * Nodejs
 * Mocha: Unit test framework.
@@ -16,49 +17,64 @@ In addition to using Javascript, Following frameworks, libraries and tools are u
 * jsHint: Checking any lint in the file.
 * Grunt: Running tasks like jshint.
 * Underscore : Operatins on array types.
+* Windows PowerShell: This external tool is used to run mocha tests.
 
 
 ### Solution structure
 
-This solution contains `1 project`. README file is in the *Solution Items* folder.
+This solution contains one project `JPMorgan.Assignment.SuperSimpleStocks`. 
+README file is in the *Solution Items* folder.
 
-* **SuperSimpleStocks** <br />
-Prject contains StockExchange and Trading modules, app.js as main file.
+This project has `app.js` as entry point for the application and 
+one module `StockExhchange` which contains implementation for domain requirenments, 
+`Gruntfile.js` is where jsHint task is configured.
 
-* **Module.models** <br />
-Folder contains domain logic classes to implement the requirenments.
-* **Module.test** <br />
-Folder contains unit tests for the modules. Powershell can be used to run these unit tests **Mocha** and **Chai** nodejs package is required, please make sure these are installed by download using comman `npm install mocha --save` and `npm install mocha --save`.
-* **Module.index.js** <br />
-This is a basic api for providing interface to run all the required methods. You can use web browser or any application like postman to call methods in this webapi. Postman can be [downloaded](https://www.getpostman.com/) or [added](http://bit.ly/1K5ZGHG) as chrome extension.
+Following are the sub folder and files in this module folder.
+
+
+* **StockExchange.models** <br />
+Folder contains domain logic modules to implement the requirenments.
+* **StockExchange.test** <br />
+Folder contains unit tests for the modules. Powershell can be used to run these unit tests. 
+**Mocha** and **Chai** Nodejs packages are required, please make sure these are installed when solution is loaded in the development environment. Following commands can be used to install reqruied node packages `npm install mocha --save` and `npm install mocha --save`.
+* **StockExchange.index.js** <br />
+This is the main API to run all the required methods.
 
 
 
 ### Design decisions.
 
 
-* **StockExchange/models/*.js**:<br />
-	Project folder contains modules for Stocks. **Stock** is like Abstract class which implements `IStock` interface, it contains **PERatio** method. Classes `StockCommon` and `StockPreferred` are derived from this abstract class.<br />
- These derived classes then implements **DividendYield** abstract method by *overriding* the base class abstract method with using respective dividend yield formula for preferred and common stock.
+
+Module structure is used as it offers cleaner organization of code in a large project.
+
+Stock  
+Stock prototype implements common functionalities which will be loaded once for all the instances of StockCommon and StockPreferred.
+Revealing prototype pattern is used as it offers cleaner view of public functions.
+
+* **StockExchange/models**:<br />
+ Project folder contains modules for Stocks. 
+
+**Stock** is a base module for StockPreferred and StockCommon, it contains functions which will be shared across `StockCommon` and `StockPreferred` which<br />
+  implements thier own version of **DividendYield** by using object-oriented *overriding* concept with using respective dividend yield formula for preferred and common stock.
     
 * **Trading/models/*.js**<br />
 	Project folder contains ITrade interface and its implementation Trade class which contains properties to describe trade. This class contains no method as use cases didn't identified any. <br />Method `VolumeWeightedStockPrice` seems more suitable to put outside in a service class called `Trading`.
     
+* **StockExchange/tests**:<br />
+Mocha and chai frameworks are used to emulate BDD and TDD style development. first defined all the requirenments and then one by one implementing requirenments in TDD fashion.
+
 * **StockExchange.index** <br />
-	This class is more like a `service class` which have following public methods.
+	This module has following public methods.
 ```
 	addStock
     addStocks
 	getDividendYield
 	getPERatio
 	getAllShareIndex
-```
-* **Trading**<br />
-	This class is also more like a `service class` which have following public methods.
-```
-addTrade
-addTrades
-getVolumeWeightedStockPrice (By default price is based on trades in past 15 minutes.)
+    addTrade
+    addTrades
+    getVolumeWeightedStockPrice (By default price is based on trades in past 15 minutes.)
 ```
 
 * **TradeTypeEnum**
