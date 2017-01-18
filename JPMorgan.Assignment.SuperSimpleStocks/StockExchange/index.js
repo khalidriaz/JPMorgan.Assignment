@@ -52,12 +52,12 @@ module.exports = function () {
             return stock.DividendYield(marketPrice);
         },
         getPERatio = function (stockSymbol, marketPrice) {
-            //try {
+            try {
                 var stock = findStock(stockSymbol);
                 return stock.getPERatio(marketPrice);
-            //} catch (exception) {
-            //    console.log(exception.message + ' of type ' + exception.error);
-            //};
+            } catch (exception) {
+                console.log(exception.message + ' of type ' + exception.error);
+            };
         },
         findStock = function (symbol) {
             
