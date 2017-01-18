@@ -52,7 +52,6 @@
     <Folder Include="StockExchange\test\" />
     <Folder Include="StockExchange\" />
     <Folder Include="StockExchange\models\" />
-    <Folder Include="Trading\test\" />
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />
     <Folder Include="typings\globals\chai\" />
